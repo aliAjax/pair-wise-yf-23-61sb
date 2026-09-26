@@ -2,6 +2,13 @@
 
 纯前端舞台灯光编排工具，支持灯具通道、场景 Cue、时间轴预览和演出方案导出，所有数据存在 IndexedDB。
 
+## 联排业务规则
+
+- 场景页可调整场景名称、淡入、保持和优先级，保存后立即排入/更新时间轴轨道。
+- 场景停用（DISABLED）或归档（ARCHIVED）后，已排轨道标记为「失效」，不参与播放。
+- 同一层时间重叠时保留优先级较高的场景，较低的一条标为「被替换」并留在原位；移除高优先级轨道后，原场景自动恢复为「有效」。
+- 排布、轨道状态和替换关系全部写入 IndexedDB，重新打开页面按最后一次结果展示。
+
 ## 快速启动
 
 ```bash
@@ -53,6 +60,7 @@ frontend/src/api, stores, types, constants, constructors, components/common, hoo
 - FixtureType: constants/FixtureType、types/FixtureType、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - CueStatus: constants/CueStatus、types/CueStatus、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
 - ChannelMode: constants/ChannelMode、types/ChannelMode、constructors、logTemplates、errorMessages、筛选器、展示组件/控制器均有引用。
+- TrackStatus（ACTIVE / INVALID / REPLACED）: constants/TrackStatus、types/TrackStatus、constants/statusText、utils/trackStatusResolver、stores/TimelineTrackStore、TimelinePage/PreviewPage 与 StatusBadge 均有引用。
 
 ## 为什么会牵一发动全身
 

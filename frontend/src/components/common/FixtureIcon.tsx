@@ -1,5 +1,11 @@
-import { StatusBadge } from "./StatusBadge";
+const ICONS: Record<string, string> = {
+  PAR: "◉",
+  SPOT: "◎",
+  WASH: "◍",
+  BEAM: "◈",
+  STROBE: "✦"
+};
 
-export function FixtureIcon({ title = "FixtureIcon", value = "READY" }: { title?: string; value?: string }) {
-  return <div className="shared-widget"><strong>{title}</strong><StatusBadge value={value} /></div>;
+export function FixtureIcon({ type }: { type: string }) {
+  return <span className="fixture-icon" title={type}>{ICONS[type] ?? "◌"}</span>;
 }
