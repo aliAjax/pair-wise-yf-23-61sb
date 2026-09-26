@@ -2,88 +2,132 @@ export const mockData = {
   "fixture": [
     {
       "id": 1,
-      "fixture_code": "fixture code 1",
-      "fixture_type": "SPOT",
-      "position_x": "position x 1",
-      "position_y": "position y 1",
-      "dmx_address": "dmx address 1",
-      "channel_count": "channel count 1",
-      "color_mode": "color mode 1"
+      "fixture_code": "PAR-01",
+      "fixture_type": "PAR",
+      "position_x": "120",
+      "position_y": "80",
+      "dmx_address": "1",
+      "channel_count": 4,
+      "color_mode": "RGBW"
     },
     {
       "id": 2,
-      "fixture_code": "fixture code 2",
-      "fixture_type": "WASH",
-      "position_x": "position x 2",
-      "position_y": "position y 2",
-      "dmx_address": "dmx address 2",
-      "channel_count": "channel count 2",
-      "color_mode": "color mode 2"
+      "fixture_code": "SPOT-01",
+      "fixture_type": "SPOT",
+      "position_x": "260",
+      "position_y": "60",
+      "dmx_address": "17",
+      "channel_count": 6,
+      "color_mode": "MOVING_HEAD"
     },
     {
       "id": 3,
-      "fixture_code": "fixture code 3",
+      "fixture_code": "WASH-01",
+      "fixture_type": "WASH",
+      "position_x": "400",
+      "position_y": "90",
+      "dmx_address": "33",
+      "channel_count": 3,
+      "color_mode": "RGB"
+    },
+    {
+      "id": 4,
+      "fixture_code": "BEAM-01",
       "fixture_type": "BEAM",
-      "position_x": "position x 3",
-      "position_y": "position y 3",
-      "dmx_address": "dmx address 3",
-      "channel_count": "channel count 3",
-      "color_mode": "color mode 3"
+      "position_x": "260",
+      "position_y": "180",
+      "dmx_address": "49",
+      "channel_count": 1,
+      "color_mode": "DIMMER_ONLY"
     }
   ],
   "cueScene": [
     {
       "id": 1,
-      "name": "name 1",
-      "fixture_states": "fixture states 1",
-      "fade_in_ms": "fade in ms 1",
-      "hold_ms": "hold ms 1",
-      "priority": "priority 1",
+      "name": "开场暖场",
+      "fixture_states": "{\"1\":180,\"3\":120}",
+      "fade_in_ms": 2000,
+      "hold_ms": 6000,
+      "priority": 1,
       "scene_status": "READY"
     },
     {
       "id": 2,
-      "name": "name 2",
-      "fixture_states": "fixture states 2",
-      "fade_in_ms": "fade in ms 2",
-      "hold_ms": "hold ms 2",
-      "priority": "priority 2",
-      "scene_status": "DISABLED"
+      "name": "独白追光",
+      "fixture_states": "{\"2\":255}",
+      "fade_in_ms": 1500,
+      "hold_ms": 8000,
+      "priority": 3,
+      "scene_status": "READY"
     },
     {
       "id": 3,
-      "name": "name 3",
-      "fixture_states": "fixture states 3",
-      "fade_in_ms": "fade in ms 3",
-      "hold_ms": "hold ms 3",
-      "priority": "priority 3",
+      "name": "高潮频闪",
+      "fixture_states": "{\"4\":255}",
+      "fade_in_ms": 200,
+      "hold_ms": 4000,
+      "priority": 5,
+      "scene_status": "READY"
+    },
+    {
+      "id": 4,
+      "name": "谢幕亮场",
+      "fixture_states": "{\"1\":255,\"2\":255,\"3\":255,\"4\":255}",
+      "fade_in_ms": 3000,
+      "hold_ms": 5000,
+      "priority": 2,
       "scene_status": "DRAFT"
+    },
+    {
+      "id": 5,
+      "name": "烟雾特效",
+      "fixture_states": "{\"3\":80}",
+      "fade_in_ms": 1000,
+      "hold_ms": 3000,
+      "priority": 4,
+      "scene_status": "DISABLED"
     }
   ],
   "timelineTrack": [
     {
       "id": 1,
       "cue_scene_id": 1,
-      "start_ms": "start ms 1",
-      "duration_ms": "duration ms 1",
-      "layer": "layer 1",
-      "locked": "locked 1"
+      "start_ms": 0,
+      "duration_ms": 8000,
+      "layer": 1,
+      "locked": false
     },
     {
       "id": 2,
       "cue_scene_id": 2,
-      "start_ms": "start ms 2",
-      "duration_ms": "duration ms 2",
-      "layer": "layer 2",
-      "locked": "locked 2"
+      "start_ms": 6000,
+      "duration_ms": 9500,
+      "layer": 1,
+      "locked": false
     },
     {
       "id": 3,
       "cue_scene_id": 3,
-      "start_ms": "start ms 3",
-      "duration_ms": "duration ms 3",
-      "layer": "layer 3",
-      "locked": "locked 3"
+      "start_ms": 0,
+      "duration_ms": 4200,
+      "layer": 2,
+      "locked": true
+    },
+    {
+      "id": 4,
+      "cue_scene_id": 4,
+      "start_ms": 17000,
+      "duration_ms": 8000,
+      "layer": 1,
+      "locked": false
+    },
+    {
+      "id": 5,
+      "cue_scene_id": 5,
+      "start_ms": 5000,
+      "duration_ms": 4000,
+      "layer": 2,
+      "locked": false
     }
   ],
   "showProject": [
